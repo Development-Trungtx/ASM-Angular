@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
+## Deploy server
+
+firebase
+
+## Login
+
+- With Facebook and google
+- Check session storage, check email and passw with API-Spring boot
+
+## Add to cart
+
+- Use, local storage
+- Add product --> Database: MySQL or PostgreSQL
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -26,4 +40,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Use, remember to write the source: TrungTX-FPL-HN
+# Use, remember to write the source: TrungTX-FPL-HN
