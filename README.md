@@ -1,4 +1,4 @@
-# ASMCovid19 by TrungTX - PH07227
+# Angular v9 by TrungTX - PH07227
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
