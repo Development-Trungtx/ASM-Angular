@@ -1,0 +1,88 @@
+<header>
+  <div class="header-top-furniture wrapper-padding-2 res-header-sm">
+    <div class="container-fluid">
+      <div class="header-bottom-wrapper">
+        <div class="logo-2 furniture-logo ptb-30">
+          <a routerLink="/home">
+            <img src="assets/img/logo/2.png" alt="">
+          </a>
+        </div>
+        <div class="menu-style-2 furniture-menu menu-hover">
+          <nav>
+            <ul>
+              <li><a routerLink="/home">home</a>
+              </li>
+              <li><a routerLink="/shop">shop</a>
+              </li>
+<!--              <li><a href="blog.html">blog</a>-->
+<!--              </li>-->
+              <li><a routerLink="/contact">contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header-cart">
+          <a class="icon-cart-furniture" routerLink="/cartProduct">
+            <i class="ti-shopping-cart"></i>
+            <span class="shop-count-furniture green">{{numberPro}}</span>
+          </a>
+          <ul class="cart-dropdown">
+            <li class="single-product-cart" *ngFor="let item of items">
+              <div class="cart-img">
+                <a href="#"><img src="{{item.product.image}}" width="85px" height="107px" alt=""></a>
+              </div>
+              <div class="cart-title">
+                <h5><a href="#">{{item.product.name}}</a></h5>
+                <h6><a href="#">{{item.product.nameTypePro}}</a></h6>
+                <span>${{item.product.price}} x {{item.quantity}}</span>
+              </div>
+              <div class="cart-delete">
+                <a (click)="remove(item.product.productId)"><i class="ti-trash"></i></a>
+              </div>
+            </li>
+            <li class="cart-space">
+              <div class="cart-sub">
+                <h4>Subtotal</h4>
+              </div>
+              <div class="cart-price">
+                <h4>${{total}}</h4>
+              </div>
+            </li>
+            <li class="cart-btn-wrapper">
+              <a class="cart-btn btn-hover" routerLink="/cartProduct">view cart</a>
+              <a class="cart-btn btn-hover" routerLink="/checkout">checkout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-bottom-furniture wrapper-padding-2 border-top-3">
+    <div class="container-fluid">
+      <div class="furniture-bottom-wrapper">
+        <div class="furniture-login">
+          <ul *ngIf="loginservice.isUserLoggedIn()">
+            <li>Get Access: <a routerLink="/logout">Logout</a></li>
+            <li><a routerLink="/userInfo">Account information </a></li>
+          </ul>
+          <ul *ngIf="!loginservice.isUserLoggedIn()">
+            <li>Get Access: <a routerLink="/login">Login </a></li>
+          </ul>
+        </div>
+        <div class="furniture-search">
+          <form action="#">
+            <input placeholder="I am Searching for . . ." type="text">
+            <button>
+              <i class="ti-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="furniture-wishlist">
+          <ul>
+            <li><a data-toggle="modal" data-target="#exampleCompare" href="#"><i class="ti-reload"></i> Compare</a></li>
+            <li><a href="#"><i class="ti-heart"></i> Wishlist</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

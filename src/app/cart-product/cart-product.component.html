@@ -1,0 +1,83 @@
+<!-- header end -->
+<div class="breadcrumb-area pt-205 pb-210"
+     style="background-image: url(https://www3.lenovo.com/medias/lenovo-thinkpad-x1-carbon-laptop-homepage-banner-main-1920x600.jpg?context=bWFzdGVyfHd3LXRoaW5rLTIwMTh8OTE2NzB8aW1hZ2UvanBlZ3x3dy10aGluay0yMDE4L2hmNC9oNjAvOTY2NTcxMjM1NzQwNi5qcGd8NjJiMTkyYzQ4ZjMwYzE1M2I2ZjdlZDQ5ZmYwNWExZDc1NGNmZWNjYTY3NjljYmIyZDM5YmYyNWE4Yzk1ODhjNg)">
+  <div class="container">
+    <div class="breadcrumb-content text-center">
+      <h2>cart page</h2>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li> cart page</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- shopping-cart-area start -->
+<div class="cart-main-area pt-95 pb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="cart-heading">Cart</h1>
+        <form action="#">
+          <div class="table-content table-responsive">
+            <table>
+              <thead>
+              <tr>
+                <th>remove</th>
+                <th>images</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of items">
+                <td class="product-remove"><a (click)="remove(item.product.productId)"><i class="pe-7s-close"></i></a>
+                </td>
+                <td class="product-thumbnail">
+                  <a href="#"><img src="{{item.product.image}}" width="85px" height="107px" alt=""></a>
+                </td>
+                <td class="product-name"><a href="#">{{item.product.name}} </a></td>
+                <td class="product-price-cart"><span class="amount">${{item.product.price}}</span></td>
+                <td class="product-quantity">
+                  <input value="{{item.quantity}}" (mouseout)="update(item.product.productId)"
+                         id="{{item.product.productId}}" type="number" min="1" max="{{item.product.total}}"/>
+                </td>
+                <td class="product-subtotal">${{item.product.price * item.quantity}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="coupon-all">
+                <div class="coupon">
+                  <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code"
+                         type="text">
+                  <input class="button" name="apply_coupon" value="Apply coupon" type="submit"><br>
+                  <input class="button" name="update_cart" value="CONTINUE SHOPPING" type="submit" routerLink="/shop"
+                         style="margin-top: 15px;">
+                </div>
+                <div class="coupon2">
+                  <input class="button" name="update_cart" value="Update cart" type="submit">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 ml-auto">
+              <div class="cart-page-total">
+                <h2>Cart totals</h2>
+                <ul>
+                  <li>Subtotal<span>${{total}}</span></li>
+                  <li>Total<span>${{total}}</span></li>
+                </ul>
+                <a routerLink="/checkout">Proceed to checkout</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

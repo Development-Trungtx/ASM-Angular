@@ -1,0 +1,116 @@
+/* 4.8 Footer style of electronics */
+
+.footer-widget-title-3 {
+  color: #fafafa;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 35px;
+  padding-bottom: 14px;
+  position: relative;
+}
+.footer-widget-title-3::after {
+  background-color: #414141;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 70px;
+}
+.footer-address-electro {
+  display: flex;
+  margin-bottom: 19px;
+}
+.footer-info-icon2 {
+  width: 68px;
+}
+.footer-info-icon2 span {
+  color: #aaaaaa;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.footer-info-content2 {
+  margin-left: 5px;
+}
+.footer-info-content2 > p {
+  color: #aaaaaa;
+  line-height: 25px;
+  margin: 0;
+}
+.footer-info-content2 > p a {
+  color: #aaaaaa;
+}
+
+.footer-info-content2 > p a:hover {
+  color: #fff;
+}
+.footer-widget-content-3 ul li {
+  margin-bottom: 22px;
+  position: relative;
+}
+.footer-widget-content-3 ul li:last-child {
+  margin-bottom: 0px;
+}
+.footer-widget-content-3 ul li:last-child {
+  margin-bottom: 0px;
+}
+.footer-widget-content-3 ul li::before {
+  border: 1px solid #696969;
+  border-radius: 50px;
+  content: "";
+  height: 7px;
+  left: 0;
+  position: absolute;
+  top: 8px;
+  width: 7px;
+}
+.footer-widget-content-3 ul li a {
+  color: #aaaaaa;
+  display: block;
+  letter-spacing: 1px;
+  padding-left: 24px;
+}
+.footer-services-content {
+  margin-left: 30px;
+}
+.footer-widget-content-3 ul li a:hover {
+  color: #fff;
+}
+.widget-right {
+  float: right;
+}
+.footer-services-wrapper {
+  display: flex;
+}
+.footer-services-icon i {
+  color: #eeeeee;
+  font-size: 36px;
+}
+.footer-services-content > h3 {
+  color: #aaaaaa;
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+.footer-services-content > p {
+  color: #aaaaaa;
+  margin: 0;
+}
+.footer-menu li {
+  display: inline-block;
+  line-height: 1;
+  margin-right: 20px;
+}
+.footer-menu li a {
+  color: #7b7b7b;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.footer-menu li a:hover {
+  color: #fff;
+}
+.footer-menu li:last-child {
+  margin-right: 0px;
+}
+.mrg-5 {
+  margin-top: 5px;
+}

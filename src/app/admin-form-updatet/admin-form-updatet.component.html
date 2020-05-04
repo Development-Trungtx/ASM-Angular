@@ -1,0 +1,153 @@
+<div class="page-content d-flex align-items-stretch">
+  <!-- Side Navbar -->
+  <nav class="side-navbar">
+    <!-- Sidebar Header-->
+    <div class="sidebar-header d-flex align-items-center">
+      <div class="avatar"><img src="https://i.imgur.com/Gs3iy3E.jpg" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="title">
+        <h1 class="h4">Trần Xuân Trung</h1>
+        <p>Web Designer</p>
+      </div>
+    </div>
+    <!-- Sidebar Navidation Menus-->
+    <span class="heading">MENU</span>
+    <ul class="list-unstyled">
+      <li class="active">
+        <a routerLink="/form"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg"
+                                   style="width: 18px; height: 20px;"/> Update</a>
+      </li>
+      <li>
+        <a routerLink="/table"><img
+          src="https://cpng.pikpng.com/pngl/s/425-4259742_back-button-arrow-back-button-icon-black-hd.png"
+          style="width: 18px; height: 20px;"/> Back home</a>
+      </li>
+    </ul>
+
+  </nav>
+  <div class="content-inner">
+    <!-- Forms Section-->
+    <section class="forms" style="padding-bottom: 5px;">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Form Elements -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h3 class="h4">PRODUCT EDIT</h3>
+              </div>
+              <div class="card-body">
+                <form class="form-horizontal" *ngIf="product">
+                  <div class="row" style="height: 600px;">
+                    <div class="col-sm-8">
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Name Product</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="name" [(ngModel)]="product.name"/>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Price product ($)</label>
+                        <div class="col-sm-9">
+                          <input type="number" class="form-control" name="price" [(ngModel)]="product.price"/>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Price sale product ($)</label>
+                        <div class="col-sm-9">
+                          <input type="number" class="form-control" name="sale" [(ngModel)]="product.sale"/>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Number product</label>
+                        <div class="col-sm-9">
+                          <input type="number" class="form-control" name="total" [(ngModel)]="product.total"/>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Type product</label>
+                        <div class="col-sm-9">
+                          <select class="form-control" name="nameTypePro" [(ngModel)]="product.nameTypePro">
+                            <option value=""></option>
+                            <option value="{{pr.name}}" *ngFor="let pr of typePro">{{pr.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Product Description</label>
+                        <div class="col-sm-9">
+                          <textarea rows="3" class="form-control" name="descrition" [(ngModel)]="product.descrition"></textarea>
+                        </div>
+                      </div>
+                      <div class="line"></div>
+
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group row">
+                        <div class="col-sm-12">
+                          <input type="text" placeholder="Link images" name="image" [(ngModel)]="product.image"
+                                 class="form-control">
+                        </div>
+                      </div>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-12">
+                          <img src="{{product.image}}" style=" width: 300px; height: 400px;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4 offset-sm-3">
+                      <button type="submit" (click)="onSubmit(content)" class="btn btn-primary" style="height: 38px;">
+                        Update
+                      </button>
+                      <button type="reset" class="btn btn-secondary"
+                              style="height: 38px; margin-left: 10px;">
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Update-->
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Update !</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Update success !!!! </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+      </div>
+    </ng-template>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <p style="color: white;">Trần Xuân Trung &copy; 05-04-2020</p>
+          </div>
+          <div class="col-sm-6 text-right">
+            <p style="color: white;">Design by <a href="https://bootstrapious.com/p/admin-template" class="external">TrungDz</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+

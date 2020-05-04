@@ -1,0 +1,152 @@
+<div class="breadcrumb-area pt-205 pb-210"
+     style="background-image: url(https://www3.lenovo.com/medias/lenovo-thinkpad-x1-carbon-laptop-homepage-banner-main-1920x600.jpg?context=bWFzdGVyfHd3LXRoaW5rLTIwMTh8OTE2NzB8aW1hZ2UvanBlZ3x3dy10aGluay0yMDE4L2hmNC9oNjAvOTY2NTcxMjM1NzQwNi5qcGd8NjJiMTkyYzQ4ZjMwYzE1M2I2ZjdlZDQ5ZmYwNWExZDc1NGNmZWNjYTY3NjljYmIyZDM5YmYyNWE4Yzk1ODhjNg)">
+  <div class="container">
+    <div class="breadcrumb-content text-center">
+      <h2>checkout</h2>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li> checkout</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- checkout-area start -->
+<div class="checkout-area ptb-100">
+  <div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="insertAllCartOrder()">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="checkbox-form">
+            <h3>Billing Details</h3>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="checkout-form-list">
+                  <label>Shipping address <span class="required">*</span></label>
+                  <input type="text" class="form-control" placeholder="" formControlName="address" name="address"
+                         [ngClass]="{ 'is-invalid': submitted && f.address?.errors }"/>
+                  <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address?.errors.required">Address is required</div>
+                    <div *ngIf="f.address?.errors.errors">Do not enter a space</div>
+                    <div *ngIf="f.address?.errors.minlength">Address must be at least 6 characters</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="checkout-form-list">
+                  <label>Customer name <span class="required">*</span></label>
+                  <input type="text" class="form-control" placeholder="" formControlName="nameCus" name="nameCus"
+                         [ngClass]="{ 'is-invalid': submitted && f.nameCus?.errors }"/>
+                  <div *ngIf="submitted && f.nameCus?.errors" class="invalid-feedback">
+                    <div *ngIf="f.nameCus?.errors.required">Customer name is required</div>
+                    <div *ngIf="f.nameCus?.errors.errors">Do not enter a space</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="checkout-form-list">
+                  <label>Number phone <span class="required">*</span></label>
+                  <input type="text" class="form-control" placeholder="" formControlName="sdt" name="sdt"
+                         [ngClass]="{ 'is-invalid': submitted && f.sdt.errors }"/>
+                  <div *ngIf="submitted && f.sdt.errors" class="invalid-feedback">
+                    <div *ngIf="f.sdt.errors.required">Number phone is required</div>
+                    <div *ngIf="f.sdt.errors.errors">Do not enter a space</div>
+                    <div *ngIf="f.sdt.errors.checkNuSDT">Incorrect phone number format</div>
+                    <div *ngIf="f.sdt.errors.minlength">Number phone must be at least 10 characters</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="checkout-form-list create-acc">
+                  <input id="cbox" type="checkbox"/>
+                  <label>Create an account?</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="your-order">
+            <h3>Your order</h3>
+            <div class="your-order-table table-responsive">
+              <table>
+                <thead>
+                <tr>
+                  <th class="product-name">Product</th>
+                  <th class="product-total">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="cart_item" *ngFor="let item of items">
+                  <td class="product-name">
+                    {{item.product.name}} <strong class="product-quantity"> × {{item.quantity}}</strong>
+                  </td>
+                  <td class="product-total">
+                    <span class="amount">${{item.product.price * item.quantity}}</span>
+                  </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr class="cart-subtotal">
+                  <th>Cart Subtotal</th>
+                  <td><span class="amount">${{total}}</span></td>
+                </tr>
+                <tr class="order-total">
+                  <th>Order Total</th>
+                  <td><strong><span class="amount">${{total}}</span></strong>
+                  </td>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div class="payment-method">
+              <div class="payment-accordion">
+                <div class="panel-group" id="faq">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h5 class="panel-title"><a data-toggle="collapse" aria-expanded="true" data-parent="#faq"
+                                                 href="#payment-1">Direct Bank Transfer.</a></h5>
+                    </div>
+                    <div id="payment-1" class="panel-collapse collapse show">
+                      <div class="panel-body">
+                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment
+                          reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h5 class="panel-title"><a class="collapsed" data-toggle="collapse" aria-expanded="false"
+                                                 data-parent="#faq" href="#payment-2">Cheque Payment</a></h5>
+                    </div>
+                    <div id="payment-2" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment
+                          reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h5 class="panel-title"><a class="collapsed" data-toggle="collapse" aria-expanded="false"
+                                                 data-parent="#faq" href="#payment-3">PayPal</a></h5>
+                    </div>
+                    <div id="payment-3" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment
+                          reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-button-payment">
+                  <input type="submit" *ngIf="total > 0" value="Place order"/>
+                  <input type="submit" routerLink="/shop" *ngIf="total == 0" value="CONTINUE SHOPPING"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

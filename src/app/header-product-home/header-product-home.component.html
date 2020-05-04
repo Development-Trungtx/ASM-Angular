@@ -1,0 +1,234 @@
+<header>
+  <div class="header-top-wrapper-2 border-bottom-2">
+    <div class="header-info-wrapper pl-200 pr-200">
+      <div class="header-contact-info">
+        <ul>
+          <li><i class="pe-7s-call"></i> +97 6985 524</li>
+          <li><i class="pe-7s-mail"></i> <a href="#">trungtxph07227@fpt.edu.vn</a></li>
+        </ul>
+      </div>
+      <div class="electronics-login-register">
+        <ul>
+          <li *ngIf="!loginservice.isUserLoggedIn()"><a routerLink="/login" style="text-decoration: none;"><i
+            class="pe-7s-users"></i>Login</a></li>
+          <li *ngIf="loginservice.isUserLoggedIn()"><a routerLink="/logout" style="text-decoration: none;"><i
+            class="pe-7s-users"></i>Logout</a></li>
+          <li><a data-toggle="modal" style="text-decoration: none;" data-target="#exampleCompare" href="#"><i
+            class="pe-7s-repeat"></i>Compare</a></li>
+          <li><a href="wishlist.html" style="text-decoration: none;"><i class="pe-7s-like"></i>Wishlist</a></li>
+          <li><a href="#" style="text-decoration: none;"><i class="pe-7s-flag"></i>US</a></li>
+          <li><a class="border-none" href="#" style="text-decoration: none;"><span>$</span>USD</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="header-bottom pt-40 pb-30 clearfix">
+    <div class="header-bottom-wrapper pr-200 pl-200">
+      <div class="logo-3">
+        <a href="index.html">
+          <img src="assets/img/logo/logo-3.png" alt="">
+        </a>
+      </div>
+      <div class="categories-search-wrapper">
+        <div class="all-categories">
+          <div class="select-wrapper">
+            <li>All Categories</li>
+          </div>
+        </div>
+        <div class="categories-wrapper">
+          <form action="#">
+            <input placeholder="Enter Your key word" type="text">
+            <button type="button"> Search</button>
+          </form>
+        </div>
+      </div>
+      <div class="trace-cart-wrapper">
+
+        <div class="categories-cart same-style" *ngIf="loginservice.isUserLoggedIn()">
+          <div class="same-style-text">
+            <a routerLink="/userInfo" style=" text-decoration: none;   line-height: 47px;    margin-right: 10px;    font-size: 15px;">Hello
+              {{name}}</a>
+          </div>
+          <div class="same-style-icon">
+            <div class="avatar"><img src="{{imge}}" alt="..." class="img-fluid rounded-circle"
+                                     style="height: 50px;
+    width: 50px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- header end -->
+<div class="pl-200 pr-200 overflow clearfix">
+  <div class="categori-menu-slider-wrapper clearfix">
+    <div class="categories-menu">
+      <div class="category-heading">
+        <h3> All Departments <i class="pe-7s-angle-down"></i></h3>
+      </div>
+      <div class="category-menu-list">
+        <ul>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;    color: #666;    display: block;    font-size: 14px;    font-weight: bold;    margin-bottom: 20px;
+    margin-left: 30px;    margin-right: 20px;    padding-bottom: 20px; text-decoration: none;">
+              <img alt="" src="assets/img/icon-img/5.png">Computer &amp; Laptops </a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;    color: #666;    display: block;    font-size: 14px;    font-weight: bold;    margin-bottom: 20px;
+    margin-left: 30px;    margin-right: 20px;    padding-bottom: 20px; text-decoration: none;">
+              <img alt="" src="assets/img/icon-img/6.png"> Phone &amp; Tablets </a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px; text-decoration: none;"><img alt="" src="assets/img/icon-img/7.png">Camera &amp; Photos </a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px; text-decoration: none;"><img alt="" src="assets/img/icon-img/8.png"> TV &amp; Audio </a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px; text-decoration: none;"><img alt="" src="assets/img/icon-img/9.png">Game &amp; Play
+              Station</a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px; text-decoration: none;"><img alt="" src="assets/img/icon-img/10.png"> Car Electronics </a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px; text-decoration: none;"><img alt="" src="assets/img/icon-img/11.png"> Accessories </a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px; text-decoration: none;"><img alt="" src="assets/img/icon-img/12.png"> Gadgets</a>
+          </li>
+          <li>
+            <a href="#" style="border-bottom: none;
+    margin-bottom: 0px;
+    padding-bottom: 0px; margin-left: 30px; text-decoration: none;"><img alt="" src="assets/img/icon-img/13.png">Others
+              Equipment</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu-slider-wrapper">
+      <div class="menu-style-3 menu-hover text-center">
+        <nav>
+          <ul>
+            <li><a routerLink="/home" style="text-decoration: none;">home <span class="sticker-new">hot</span></a>
+            </li>
+            <!--            <li><a href="#" style="text-decoration: none;">pages </a>-->
+            <!--            </li>-->
+            <li><a routerLink="/shop" style="text-decoration: none;">shop <span class="sticker-new">hot</span></a>
+            </li>
+<!--            <li><a href="blog.html" style="text-decoration: none;">blog <span class="sticker-new">hot</span></a>-->
+<!--            </li>-->
+            <li><a routerLink="/contact" style="text-decoration: none;">contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="slider-area">
+        <div class="slider-active owl-carousel owl-loaded owl-drag">
+
+
+          <div class="owl-stage-outer">
+            <div class="owl-stage"
+                 style="transform: translate3d(-3516px, 0px, 0px); transition: all 0s ease 0s; width: 7032px;">
+              <div class="owl-item cloned" style="width: 1172px;">
+                <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173"
+                     style="background-image: url(assets/img/slider/5.jpg)">
+                  <div class="slider-animation slider-content-style-3 fadeinup-animated">
+                    <h2 class="animated">Invention of <br>design platform</h2>
+                    <h4 class="animated">Best Product With warranty </h4>
+                    <a class="electro-slider-btn btn-hover" href="product-details.html">buy now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 1172px;">
+                <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173"
+                     style="background-image: url(assets/img/slider/20.jpg)">
+                  <div class="slider-animation slider-content-style-3 fadeinup-animated">
+                    <h2 class="animated">Invention of <br>design platform</h2>
+                    <h4 class="animated">Best Product With warranty </h4>
+                    <a class="electro-slider-btn btn-hover" href="product-details.html">buy now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 1172px;">
+                <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173"
+                     style="background-image: url(assets/img/slider/5.jpg)">
+                  <div class="slider-animation slider-content-style-3 fadeinup-animated">
+                    <h2 class="animated">Invention of <br>design platform</h2>
+                    <h4 class="animated">Best Product With warranty </h4>
+                    <a class="electro-slider-btn btn-hover" href="product-details.html">buy now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 1172px;">
+                <div class="single-slider single-slider-hm3 bg-img pt-170 pb-173"
+                     style="background-image: url(http://prestashop17.joommasters.com/kasos/themes/jms_kasos/assets/img/h2-banner1.jpg)">
+                  <div class="slider-animation slider-content-style-3 fadeinup-animated">
+                    <h2 class="animated">Invention of <br>design platform</h2>
+                    <h4 class="animated">Best Product With warranty </h4>
+                    <a class="electro-slider-btn btn-hover" routerLink="/shop">buy now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="owl-nav disabled">
+            <div class="owl-prev">prev</div>
+            <div class="owl-next">next</div>
+          </div>
+          <div class="owl-dots">
+            <div class="owl-dot"><span></span></div>
+            <div class="owl-dot active"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

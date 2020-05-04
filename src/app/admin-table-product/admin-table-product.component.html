@@ -1,0 +1,161 @@
+<div class="page-content d-flex align-items-stretch">
+  <!-- Side Navbar -->
+  <nav class="side-navbar">
+    <!-- Sidebar Header-->
+    <div class="sidebar-header d-flex align-items-center">
+      <div class="avatar"><img src="https://i.imgur.com/Gs3iy3E.jpg" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="title">
+        <h1 class="h4">Trần Xuân Trung</h1>
+        <p>Web Designer</p>
+      </div>
+    </div>
+    <!-- Sidebar Navidation Menus-->
+    <span class="heading">Menu</span>
+    <ul class="list-unstyled">
+      <li class="active">
+        <a routerLink="/table"><img src="https://image.flaticon.com/icons/png/512/36/36069.png"
+                                    style="width: 18px; height: 20px;"/> PRODUCT MANAGE</a>
+      </li>
+      <li>
+        <a routerLink="/typePro"><img src="https://image.flaticon.com/icons/png/512/36/36069.png"
+                                      style="width: 18px; height: 20px;"/> TYPE PRODUCT MANAGE</a>
+      </li>
+      <li >
+        <a routerLink="/users"><img src="https://img.pngio.com/png-file-svg-user-icon-free-copyright-transparent-png-880x980-user-icon-png-840_975.png"
+                                    style="width: 18px; height: 20px;"/> USERS MANAGE</a>
+      </li>
+      <li>
+        <a routerLink="/order"><img src="https://img.pngio.com/png-file-svg-user-icon-free-copyright-transparent-png-880x980-user-icon-png-840_975.png"
+                                    style="width: 18px; height: 20px;"/> ORDER MANAGE</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-inner">
+    <section class="tables">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h3 class="h4">PRODUCT INFORMATION</h3>
+              </div>
+              <div class="row">
+                <div class="col-lg-11">
+                  <input placeholder="Search Products..." type="text" name="search" [(ngModel)]="searchText" (keyup)="onloadPro()"
+                         autocomplete="off"/>
+                </div>
+                <div class="col-lg-1" style="    padding-top: 7px;">
+                  <a class="btn btn-danger" routerLink="/form" style="line-height: 17px;">Insert</a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Product type</th>
+                      <th class="text-center">Number of products</th>
+                      <th>Price</th>
+                      <th>Price sale</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr
+                      *ngFor="let pr of productALL | filter:searchText | paginate: {itemsPerPage: pageSize, currentPage: p} ;index as i">
+                      <th scope="row">{{i}}</th>
+                      <td><a (click)="detailPro(pr.productId)" data-toggle="modal"
+                             data-target="#exampleModal">{{pr.name}}</a></td>
+                      <td>{{pr.nameTypePro}}</td>
+                      <td class="text-center">{{pr.total == 0 ? 'Out of stock' : pr.total}}</td>
+                      <td>{{pr.price}}</td>
+                      <td>{{pr.sale}}</td>
+                      <td>
+                        <a class="btn btn-warning pb-4" style="line-height: 20px; margin-right: 10px;" routerLink="/updatePro/{{pr.productId}}">Update</a>
+                        <button type="button" class="btn btn-dark pb-4" style="line-height: 20px;" (click)="open(content)">
+                          Delete
+                        </button>
+                      </td>
+                      <!--Delete-->
+                      <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Delete product</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">No</button>
+                          <button type="button" class="btn btn-outline-dark"
+                                  (click)="daleteProduct(pr.productId); c('Save click') ">Yes
+                          </button>
+                        </div>
+                      </ng-template>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center p-2">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--DETAIL-->
+    <div class="modal fade" *ngIf="productDetail" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{productDetail.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-5">
+                <img src="{{productDetail.image}}" width="200px">
+              </div>
+              <div class="col-lg-6">
+                <div style="    margin-top: 40px;">
+                  <li>Name product: {{productDetail.name}}</li>
+                  <li>Price product: {{productDetail.price}}</li>
+                  <li>Price saale: {{productDetail.sale}}</li>
+                  <li>Desc product: {{productDetail.descrition}}</li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Footer-->
+    <footer class="main-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <p style="color: white;">Trần Xuân Trung &copy; 05-04-2020</p>
+          </div>
+          <div class="col-sm-6 text-right">
+            <p style="color: white;">Design by <a href="https://bootstrapious.com/p/admin-template" class="external">TrungDz</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+

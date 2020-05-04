@@ -1,0 +1,59 @@
+<div class="breadcrumb-area pt-205 pb-210"
+     style="background-image: url(https://www3.lenovo.com/medias/lenovo-thinkpad-x1-carbon-laptop-homepage-banner-main-1920x600.jpg?context=bWFzdGVyfHd3LXRoaW5rLTIwMTh8OTE2NzB8aW1hZ2UvanBlZ3x3dy10aGluay0yMDE4L2hmNC9oNjAvOTY2NTcxMjM1NzQwNi5qcGd8NjJiMTkyYzQ4ZjMwYzE1M2I2ZjdlZDQ5ZmYwNWExZDc1NGNmZWNjYTY3NjljYmIyZDM5YmYyNWE4Yzk1ODhjNg)">
+  <div class="container">
+    <div class="breadcrumb-content text-center">
+      <h2 style="    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-transform: capitalize;"> shop grid</h2>
+
+    </div>
+  </div>
+</div>
+<div class="shop-page-wrapper ptb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <h1 class="text-center m-t-15 m-b-25" style="padding-bottom: 25px;">YOUR ACCOUNT</h1>
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Imges</th>
+          <th>Name product</th>
+          <th>Name customer</th>
+          <th>Amount</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Total many</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+          *ngFor="let pr of cartAll  ;index as i">
+          <th scope="row">{{i}}</th>
+          <td><a><img src="{{pr.imges}}" style="width: 65px"></a></td>
+          <td>{{pr.orderNumber}}</td>
+          <td>{{pr.proName}}</td>
+          <td>{{pr.amount}}</td>
+          <td class="text-center">{{pr.price}}</td>
+          <td class="text-center">{{pr.amount * pr.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="order-button-payment">
+          <input type="submit" routerLink="/userInfo" value="RETURN TO MANAGING ACCOUNT"/>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <h3 style="float: right;">Total many: {{totalMany}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+

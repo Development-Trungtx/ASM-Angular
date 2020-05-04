@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "asmangular",
+    "trungtx": "apiangulartrungtx"
+  }
+}

@@ -1,0 +1,172 @@
+<div class="page-content d-flex align-items-stretch">
+  <!-- Side Navbar -->
+  <nav class="side-navbar">
+    <!-- Sidebar Header-->
+    <div class="sidebar-header d-flex align-items-center">
+      <div class="avatar"><img src="https://i.imgur.com/Gs3iy3E.jpg" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="title">
+        <h1 class="h4">Trần Xuân Trung</h1>
+        <p>Web Designer</p>
+      </div>
+    </div>
+    <!-- Sidebar Navidation Menus-->
+    <span class="heading">Menu</span>
+    <ul class="list-unstyled">
+      <li>
+        <a routerLink="/table"><img src="https://image.flaticon.com/icons/png/512/36/36069.png"
+                                    style="width: 18px; height: 20px;"/> PRODUCT MANAGE</a>
+      </li>
+      <li>
+        <a routerLink="/typePro"><img src="https://image.flaticon.com/icons/png/512/36/36069.png"
+                                      style="width: 18px; height: 20px;"/> TYPE PRODUCT MANAGE</a>
+      </li>
+      <li class="active">
+        <a routerLink="/users"><img
+          src="https://img.pngio.com/png-file-svg-user-icon-free-copyright-transparent-png-880x980-user-icon-png-840_975.png"
+          style="width: 18px; height: 20px;"/> USERS MANAGE</a>
+      </li>
+      <li>
+        <a routerLink="/order"><img
+          src="https://img.pngio.com/png-file-svg-user-icon-free-copyright-transparent-png-880x980-user-icon-png-840_975.png"
+          style="width: 18px; height: 20px;"/> ORDER MANAGE</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-inner">
+    <section class="tables">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h3 class="h4">USER INFORMATION</h3>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <input placeholder="Search User..." type="text" name="search" [(ngModel)]="searchText"
+                         (keyup)="onloadUsers()"
+                         autocomplete="off"/>
+                </div>
+                <!--                <div class="col-lg-1" style="    padding-top: 7px;">-->
+                <!--                  <a class="btn btn-danger" routerLink="/form" style="line-height: 17px;">Insert</a>-->
+                <!--                </div>-->
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Email</th>
+                      <th>PassWord</th>
+                      <th class="text-center">Role</th>
+                      <th>Name customer</th>
+                      <th>Number phone</th>
+                      <th>Address</th>
+                      <!--                      <th>Action</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr
+                      *ngFor="let pr of usersAll | filter:searchText | paginate: {itemsPerPage: pageSize, currentPage: p} ;index as i">
+                      <th scope="row">{{i}}</th>
+                      <td><a (click)="detailUsers(pr.userId)" data-toggle="modal"
+                             data-target="#exampleModal">{{pr.email}}</a></td>
+                      <td>{{pr.passWord}}</td>
+                      <td class="text-center">{{pr.roles}}</td>
+                      <td>{{pr.nameCustomer}}</td>
+                      <td>{{pr.numberPhone}}</td>
+                      <!--                      <td>{{pr.email}}</td>-->
+                      <td>{{pr.address}}</td>
+                      <!--                      <td>-->
+                      <!--                        <a class="btn btn-warning pb-4" style="line-height: 20px; margin-right: 10px;"-->
+                      <!--                           routerLink="/updatePro/{{pr.productId}}">Update</a>-->
+                      <!--                        <button type="button" class="btn btn-dark pb-4" style="line-height: 20px;" (click)="open(content)">-->
+                      <!--                          Delete-->
+                      <!--                        </button>-->
+                      <!--                      </td>-->
+                      <!--Delete-->
+                      <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Delete users</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">No</button>
+                          <button type="button" class="btn btn-outline-dark"
+                                  (click)="deleteUsers(pr.productId); c('Save click') ">Yes
+                          </button>
+                        </div>
+                      </ng-template>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center p-2">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--DETAIL-->
+    <div class="modal fade" *ngIf="usersDetail" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{usersDetail.nameCustomer}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row" style="width: 520px;">
+              <div class="col-lg-5">
+                <img src="{{usersDetail.imges}}" width="200px" style="margin-top: 45px;">
+              </div>
+              <div class="col-lg-6">
+                <div style="    margin-top: 40px;">
+                  <li>Name Customer: {{usersDetail.nameCustomer}}</li>
+                  <li>Users: {{usersDetail.userName}}</li>
+                  <li>Password: {{usersDetail.passWord}}</li>
+                  <li>Role: {{usersDetail.roles}}</li>
+                  <li>Email: {{usersDetail.email}}</li>
+                  <li>Address: {{usersDetail.address}}</li>
+                  <li>Birthday: {{usersDetail.birthday}}</li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Footer-->
+    <footer class="main-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <p style="color: white;">Trần Xuân Trung &copy; 05-04-2020</p>
+          </div>
+          <div class="col-sm-6 text-right">
+            <p style="color: white;">Design by <a href="https://bootstrapious.com/p/admin-template" class="external">TrungDz</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+

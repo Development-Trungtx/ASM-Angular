@@ -1,0 +1,67 @@
+<!-- header end -->
+<div class="breadcrumb-area pt-205 pb-210"
+     style="background-image: url(https://www3.lenovo.com/medias/lenovo-thinkpad-x1-carbon-laptop-homepage-banner-main-1920x600.jpg?context=bWFzdGVyfHd3LXRoaW5rLTIwMTh8OTE2NzB8aW1hZ2UvanBlZ3x3dy10aGluay0yMDE4L2hmNC9oNjAvOTY2NTcxMjM1NzQwNi5qcGd8NjJiMTkyYzQ4ZjMwYzE1M2I2ZjdlZDQ5ZmYwNWExZDc1NGNmZWNjYTY3NjljYmIyZDM5YmYyNWE4Yzk1ODhjNg)">
+  <div class="container">
+    <div class="breadcrumb-content text-center">
+      <h2>login</h2>
+      <ul>
+        <li><a routerLink="/">home</a></li>
+        <li> login</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- login-area start -->
+<div class="register-area ptb-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-12 col-lg-6 col-xl-6 ml-auto mr-auto">
+        <div class="login">
+          <div class="login-form-container">
+            <div class="login-form">
+              <form action="#" method="post">
+                <input type="text" name="userN" [(ngModel)]="login.userN" placeholder="Email">
+                <input type="password" name="passW" [(ngModel)]="login.passW" placeholder="Password">
+                <div class="button-box">
+                  <div class="login-toggle-btn">
+                    <div class="row">
+                      <div class="col-md-6" style="margin-top: -34px;">
+                        <button type="submit" class="default-btn content" (click)=checkLogin()>Login</button>
+                      </div>
+                      <div class="col-md-6">
+                        <input type="checkbox" style="float: right;">
+                        <label style="float: right;">Remember me</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--                  <button type="submit" class="default-btn float-right" routerLink="/register">Register an account-->
+                  <!--                  </button>-->
+                  <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-6">
+                      <div class="form-group col-md-6 xyz">
+                        <button type="button" class="btn btn-primary fb" (click)="signInWithFB()"
+                                style="width: 397px; height: 40px; background-color: #1B1BFD;">
+                          <i class="fa fa-facebook"></i> Facebook
+                        </button>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 float-right">
+                      <a #loginRef
+                         style="color: white; tab-size: 12px;    background-color: red; height: 39px;line-height: 23px;   box-shadow: 0 1px 2px 1px #ddd;"
+                         class="btn btn-lg btn-google btn-block text-uppercase btn-outline">
+                        <img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Google</a>
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- login-area end -->

@@ -1,0 +1,70 @@
+<div class="breadcrumb-area pt-205 pb-210"
+     style="background-image: url(https://www3.lenovo.com/medias/lenovo-thinkpad-x1-carbon-laptop-homepage-banner-main-1920x600.jpg?context=bWFzdGVyfHd3LXRoaW5rLTIwMTh8OTE2NzB8aW1hZ2UvanBlZ3x3dy10aGluay0yMDE4L2hmNC9oNjAvOTY2NTcxMjM1NzQwNi5qcGd8NjJiMTkyYzQ4ZjMwYzE1M2I2ZjdlZDQ5ZmYwNWExZDc1NGNmZWNjYTY3NjljYmIyZDM5YmYyNWE4Yzk1ODhjNg)">
+  <div class="container">
+    <div class="breadcrumb-content text-center">
+      <h2 style="    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-transform: capitalize;"> shop grid</h2>
+
+    </div>
+  </div>
+</div>
+<div class="shop-page-wrapper ptb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <h1 class="text-center m-t-15 m-b-25" style="padding-bottom: 25px;">YOUR ACCOUNT</h1>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 p-l-md-10 p-l-sm-10">
+        <div class="account_left">
+          <h2>Account</h2>
+          <ul>
+            <li><a routerLink="/userInfo"><i class="fa fa-user" aria-hidden="true"></i> Account information</a>
+            </li>
+            <li class="current"><a href="/"><i class="fa fa-list" aria-hidden="true"></i> Order management</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <div class="user_box">
+          <h2 class="title-detail">
+            Order information
+          </h2>
+          <div *ngIf="check == undefined">
+            Không có đơn hàng nào !!!!
+          </div>
+          <div *ngIf="check != undefined">
+            <table class="table table-striped" style="width: 990px">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Order number</th>
+                <th>Name Customer order</th>
+                <th>Day order</th>
+                <th>Address order</th>
+                <th>Number phone order</th>
+                <th class="text-center">Total many</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr
+                *ngFor="let pr of orderAll ;index as i">
+                <th scope="row">{{i}}</th>
+                <td><a routerLink="/cartClient/{{pr.orderId}}">{{pr.nameOrder}}</a></td>
+                <td>{{pr.cusNameOrder}}</td>
+                <td>{{pr.dayOrder}}</td>
+                <td>{{pr.addressOrder}}</td>
+                <td>{{pr.numbPhone}}</td>
+                <td class="text-center">{{pr.total_money}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

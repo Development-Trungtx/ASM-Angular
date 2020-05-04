@@ -1,0 +1,286 @@
+<div class="breadcrumb-area pt-205 pb-210"
+     style="background-image: url(https://www3.lenovo.com/medias/lenovo-thinkpad-x1-carbon-laptop-homepage-banner-main-1920x600.jpg?context=bWFzdGVyfHd3LXRoaW5rLTIwMTh8OTE2NzB8aW1hZ2UvanBlZ3x3dy10aGluay0yMDE4L2hmNC9oNjAvOTY2NTcxMjM1NzQwNi5qcGd8NjJiMTkyYzQ4ZjMwYzE1M2I2ZjdlZDQ5ZmYwNWExZDc1NGNmZWNjYTY3NjljYmIyZDM5YmYyNWE4Yzk1ODhjNg)">
+  <div class="container">
+    <div class="breadcrumb-content text-center">
+      <h2> shop grid</h2>
+      <ul>
+        <li><a routerLink="/home">home</a></li>
+        <li>shop grid</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="shop-page-wrapper ptb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="shop-sidebar">
+          <div class="sidebar-widget mb-50">
+            <h3 class="sidebar-title">Search Products</h3>
+            <div class="sidebar-search">
+              <form action="#">
+                <input placeholder="Search Products..." type="text" name="search" [(ngModel)]="searchText"
+                       (keyup)="onloadPro()"
+                       autocomplete="off"/>
+                <button><i class="ti-search"></i></button>
+              </form>
+            </div>
+          </div>
+          <div class="sidebar-widget mb-45">
+            <h3 class="sidebar-title">Call attention search</h3>
+            <div class="sidebar-categories">
+              <ul>
+                <li><a (click)="loadByType('')"><span>All product</span></a></li>
+              </ul>
+              <ul *ngFor="let yy of typeProduct">
+                <li><a (click)="loadByType(yy.name)"> <span>{{yy.name}}</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-widget sidebar-overflow mb-45">
+            <h3 class="sidebar-title">color</h3>
+            <h3 class="sidebar-title" style="font-size: 12px; color: red;">*Function is updating</h3>
+            <div class="product-color">
+              <ul>
+                <li class="red">b</li>
+                <li class="pink">p</li>
+                <li class="blue">b</li>
+                <li class="sky">b</li>
+                <li class="green">y</li>
+                <li class="purple">g</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-widget mb-40">
+            <h3 class="sidebar-title">size</h3>
+            <h3 class="sidebar-title" style="font-size: 12px; color: red;">*Function is updating</h3>
+            <div class="product-size">
+              <ul>
+                <li><a>xl</a></li>
+                <li><a>m</a></li>
+                <li><a>l</a></li>
+                <li><a>ml</a></li>
+                <li><a>lm</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-widget mb-50">
+            <h3 class="sidebar-title">Top rated products</h3>
+            <div class="sidebar-top-rated-all">
+              <div class="sidebar-top-rated mb-30">
+                <div class="single-top-rated">
+                  <div class="top-rated-img">
+                    <a href="#"><img
+                      src="https://tanphat.net/image/cache/catalog/thuy-tanphat/laptop/Laptop-dell-3452-daklak-bmt-8-500x500.jpg"
+                      alt="" style="height: 88px; width: 91px"></a>
+                  </div>
+                  <div class="top-rated-text">
+                    <h4><a href="#" style="text-decoration: none;">Laptop HP 3000</a></h4>
+                    <div class="top-rated-rating">
+                      <ul>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                      </ul>
+                    </div>
+                    <span>$340.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-top-rated mb-30">
+                <div class="single-top-rated">
+                  <div class="top-rated-img">
+                    <a href="#"><img
+                      src="https://bizweb.dktcdn.net/thumb/1024x1024/100/031/560/products/iphone-8-plus-red-jpeg-9b239df9-e951-415c-9ef2-3d5196b62003.jpg?v=1534649540190"
+                      alt="" style="height: 88px; width: 91px"></a>
+                  </div>
+                  <div class="top-rated-text">
+                    <h4><a href="#" style="text-decoration: none;">Iphone 7S Plus</a></h4>
+                    <div class="top-rated-rating">
+                      <ul>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                      </ul>
+                    </div>
+                    <span>$640.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-top-rated mb-30">
+                <div class="single-top-rated">
+                  <div class="top-rated-img">
+                    <a href="#"><img
+                      src="https://tainghe.com.vn/media/product/203_tai_nghe_sennheiser_hd800_chinh_hang.gif"
+                      alt="" style="height: 88px; width: 91px"></a>
+                  </div>
+                  <div class="top-rated-text">
+                    <h4><a href="#" style="text-decoration: none;">Head phone A300</a></h4>
+                    <div class="top-rated-rating">
+                      <ul>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                      </ul>
+                    </div>
+                    <span>$140.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-top-rated mb-30">
+                <div class="single-top-rated">
+                  <div class="top-rated-img">
+                    <a href="#"><img
+                      src="https://thegioiso360.vn/wp-content/uploads/2019/09/iphone-8-plus-hh-600x600.jpg" alt=""
+                      style="height: 88px; width: 91px"></a>
+                  </div>
+                  <div class="top-rated-text">
+                    <h4><a href="#" style="text-decoration: none;">Iphone XS pro max</a></h4>
+                    <div class="top-rated-rating">
+                      <ul>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                        <li><i class="pe-7s-star"></i></li>
+                      </ul>
+                    </div>
+                    <span>$1040.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="shop-product-wrapper">
+          <div class="shop-bar-area">
+            <div class="shop-product-content tab-content">
+              <div id="grid-sidebar7" class="tab-pane fade active show">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6"
+                       *ngFor="let pr of productALL | filter:searchText | paginate: {itemsPerPage: pageSize, currentPage: p};index as i">
+                    <div class="product-wrapper product-box-style mb-30">
+                      <div class="product-img">
+                        <a href="#">
+                          <img
+                            src="{{pr.image}}"
+                            alt="" style="width: 269.97px; height: 346.11px">
+                        </a>
+                        <span>hot</span>
+                        <div class="product-action">
+                          <a class="animate-left" title="Wishlist" href="#">
+                            <i class="pe-7s-like"></i>
+                          </a>
+                          <a *ngIf="pr.total > 0" class="animate-top" title="Add To Cart"
+                             [routerLink]="['/cartProduct', { id:pr.productId }]">
+                            <i class="pe-7s-cart "></i>
+                          </a>
+                          <a *ngIf="pr.total == 0" class="animate-top" title="Out of stock">
+                            <i class="pe-7s-attention"></i>
+                          </a>
+                          <a class="animate-right" title="Quick View" data-toggle="modal" data-target="#exampleModal"
+                             href="#" (click)="deetailPro(pr.productId)">
+                            <i class="pe-7s-look"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <h4><a href="#">{{pr.name}}</a></h4>
+                        <span>${{pr.price}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center p-2">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true" *ngIf="detPro">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span class="pe-7s-close" aria-hidden="true"></span>
+  </button>
+  <div class="modal-dialog modal-quickview-width" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="qwick-view-left">
+          <div class="quick-view-learg-img">
+            <div class="quick-view-tab-content tab-content">
+              <div class="tab-pane active show fade" id="modal1" role="tabpanel">
+                <img src="{{detPro.image}}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="qwick-view-right">
+          <div class="qwick-view-content">
+            <h3>{{detPro.name}}</h3>
+            <div class="price">
+              <span class="new">${{detPro.price}}</span>
+              <span class="old">${{detPro.sale}}  </span>
+            </div>
+            <div class="rating-number">
+              <div class="quick-view-rating">
+                <i class="pe-7s-star"></i>
+                <i class="pe-7s-star"></i>
+                <i class="pe-7s-star"></i>
+                <i class="pe-7s-star"></i>
+                <i class="pe-7s-star"></i>
+              </div>
+              <div class="quick-view-number">
+                <span>2 Ratting (S)</span>
+              </div>
+            </div>
+            <p>{{detPro.descrition}}.</p>
+            <div class="quick-view-select">
+              <div class="select-option-part">
+                <label>Size*</label>
+                <select class="select">
+                  <option value="">- Please Select -</option>
+                  <option value="">900</option>
+                  <option value="">700</option>
+                </select>
+              </div>
+              <div class="select-option-part">
+                <label>Color*</label>
+                <select class="select">
+                  <option value="">- Please Select -</option>
+                  <option value="">orange</option>
+                  <option value="">pink</option>
+                  <option value="">yellow</option>
+                </select>
+              </div>
+            </div>
+            <div class="quickview-plus-minus">
+              <div class="cart-plus-minus">
+                <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+              </div>
+              <div class="quickview-btn-cart">
+                <a class="btn-hover-black" href="#">add to cart</a>
+              </div>
+              <div class="quickview-btn-wishlist">
+                <a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

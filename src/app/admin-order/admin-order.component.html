@@ -1,0 +1,136 @@
+<div class="page-content d-flex align-items-stretch">
+  <!-- Side Navbar -->
+  <nav class="side-navbar">
+    <!-- Sidebar Header-->
+    <div class="sidebar-header d-flex align-items-center">
+      <div class="avatar"><img src="https://i.imgur.com/Gs3iy3E.jpg" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="title">
+        <h1 class="h4">Trần Xuân Trung</h1>
+        <p>Web Designer</p>
+      </div>
+    </div>
+    <!-- Sidebar Navidation Menus-->
+    <span class="heading">Menu</span>
+    <ul class="list-unstyled">
+      <li>
+        <a routerLink="/table"><img src="https://image.flaticon.com/icons/png/512/36/36069.png"
+                                    style="width: 18px; height: 20px;"/> PRODUCT MANAGE</a>
+      </li>
+      <li>
+        <a routerLink="/typePro"><img src="https://image.flaticon.com/icons/png/512/36/36069.png"
+                                      style="width: 18px; height: 20px;"/> TYPE PRODUCT MANAGE</a>
+      </li>
+      <li>
+        <a routerLink="/users"><img
+          src="https://img.pngio.com/png-file-svg-user-icon-free-copyright-transparent-png-880x980-user-icon-png-840_975.png"
+          style="width: 18px; height: 20px;"/> USERS MANAGE</a>
+      </li>
+      <li class="active">
+        <a routerLink="/order"><img
+          src="https://img.pngio.com/png-file-svg-user-icon-free-copyright-transparent-png-880x980-user-icon-png-840_975.png"
+          style="width: 18px; height: 20px;"/> ORDER MANAGE</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-inner">
+    <section class="tables">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h3 class="h4">ORDER INFORMATION</h3>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <input placeholder="Search User..." type="text" name="search" [(ngModel)]="searchText"
+                         (keyup)="onloadOrder()"
+                         autocomplete="off"/>
+                </div>
+                <!--                <div class="col-lg-1" style="    padding-top: 7px;">-->
+                <!--                  <a class="btn btn-danger" routerLink="/form" style="line-height: 17px;">Insert</a>-->
+                <!--                </div>-->
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>User order</th>
+                      <th>Name order</th>
+                      <th>Name Customer order</th>
+                      <th>Day order</th>
+                      <th >Address order</th>
+                      <th>Number phone order</th>
+                      <th class="text-center">Total many</th>
+                      <!--                      <th>Action</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr
+                      *ngFor="let pr of orderAll | filter:searchText | paginate: {itemsPerPage: pageSize, currentPage: p} ;index as i">
+                      <th scope="row">{{i}}</th>
+                      <td><a (click)="detailOrder(pr.orderId)" routerLink="/cart/{{pr.orderId}}" data-toggle="modal"
+                             data-target="#exampleModal">{{pr.emailUser}}</a></td>
+                      <td>{{pr.nameOrder}}</td>
+                      <td>{{pr.cusNameOrder}}</td>
+                      <td>{{pr.dayOrder}}</td>
+                      <td >{{pr.addressOrder}}</td>
+                      <td>{{pr.numbPhone}}</td>
+                      <td class="text-center">{{pr.total_money}}</td>
+                      <!--                      <td>-->
+                      <!--                        <a class="btn btn-warning pb-4" style="line-height: 20px; margin-right: 10px;" routerLink="/updateOrder/{{pr.orderId}}">Update</a>-->
+                      <!--                        <button type="button" class="btn btn-dark pb-4" style="line-height: 20px;" (click)="open(content)">-->
+                      <!--                          Delete-->
+                      <!--                        </button>-->
+                      <!--                      </td>-->
+                      <!--Delete-->
+                      <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Delete users</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">No</button>
+                          <button type="button" class="btn btn-outline-dark"
+                                  (click)="deleteOrder(pr.orderId); c('Save click') ">Yes
+                          </button>
+                        </div>
+                      </ng-template>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center p-2">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <p style="color: white;">Trần Xuân Trung &copy; 05-04-2020</p>
+          </div>
+          <div class="col-sm-6 text-right">
+            <p style="color: white;">Design by <a href="https://bootstrapious.com/p/admin-template" class="external">TrungDz</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
